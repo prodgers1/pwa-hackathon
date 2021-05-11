@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   getSCOMAlerts() {
     return data.scom;
@@ -7,6 +8,9 @@ export default {
   },
   getKibanaLogs() {
     return data.kibana;
+  },
+  getLoadBalancers() {
+    return data.loadbalancers;
   },
   // getExample(user, date) {
   //   if (date) {
@@ -198,7 +202,7 @@ var data = {
       },
     },
   ],
-  clusters: [
+  loadbalancers: [
     {
       name: 'DRPNWMMCLMAIN',
       status: 'C',
