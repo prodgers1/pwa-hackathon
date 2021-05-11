@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import dataAccessLayer from '../../data/dataAccessLayer';
 import { TableContainer, Table, TableHead, TableRow, Paper, TableCell, TableBody } from '@material-ui/core';
+import { format } from 'date-fns';
+import parseJSON from 'date-fns/parseJSON';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -16,16 +18,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-{
-  batchCount: 0,
-  inProgessCount: 0,
-  successCount: 0,
-  failureCount: 0,
-  queueTotal: 0,
-  date: "2021-05-09T00:00:00",
-  transactionCount: 231524
-}, 
-
 const rows = dataAccessLayer.getBillingAgentData();
 
 const BillingAgent = ({ isDashboard }) => {
@@ -33,8 +25,9 @@ const BillingAgent = ({ isDashboard }) => {
   if (!isDashboard) {
     return (
       <div>
+        <h3>Billing Agent Status</h3>
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
+          <Table className={classes.table}>
             <TableHead>
               <TableRow>
                 <TableCell>Date</TableCell>
@@ -49,7 +42,9 @@ const BillingAgent = ({ isDashboard }) => {
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row.date}>
-                  <TableCell component="th" scope="row">{row.date}</TableCell>
+                  <TableCell component="th" scope="row">
+                    {format(parseJSON(row.date), 'MM/dd/yyyy')}
+                  </TableCell>
                   <TableCell align="right">{row.transactionCount}</TableCell>
                   <TableCell align="right">{row.batchCount}</TableCell>
                   <TableCell align="right">{row.inProgessCount}</TableCell>
@@ -64,7 +59,14 @@ const BillingAgent = ({ isDashboard }) => {
       </div>
     );
   } else {
-    return <span>Dashboard!</span>;
+    return (
+      <div>
+        <span>Billing Agent</span>
+        <div>Days below processing threshold: 2</div>
+        <div>Total failure count: 2</div>
+        <div>Today's delta: 50%</div>
+      </div>
+    );
   }
 };
 
