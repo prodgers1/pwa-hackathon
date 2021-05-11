@@ -8,6 +8,9 @@ export default {
   getKibanaLogs() {
     return data.kibana;
   },
+  getBillingAgentData() {
+    return data.billingAgent;
+  },
   // getExample(user, date) {
   //   if (date) {
   //     var dateLimit = Date.parse(date);
@@ -196,6 +199,44 @@ var data = {
           name: '10.2.3.4',
         },
       },
+    },
+  ],
+  billingAgent: [
+    {
+      batchCount: 0,
+      inProgessCount: 0,
+      successCount: 0,
+      failureCount: 0,
+      queueTotal: 0,
+      date: '2021-05-08T00:00:00',
+      transactionCount: 333839,
+    },
+    {
+      batchCount: 0,
+      inProgessCount: 0,
+      successCount: 0,
+      failureCount: 0,
+      queueTotal: 0,
+      date: '2021-05-09T00:00:00',
+      transactionCount: 231524,
+    },
+    {
+      batchCount: 490021,
+      inProgessCount: 0,
+      successCount: 490000,
+      failureCount: 2,
+      queueTotal: 490002,
+      date: '2021-05-10T00:00:00',
+      transactionCount: 218453,
+    },
+    {
+      batchCount: 74896,
+      inProgessCount: 0,
+      successCount: 74895,
+      failureCount: 0,
+      queueTotal: 74895,
+      date: '2021-05-11T00:00:00',
+      transactionCount: 143246,
     },
   ],
   clusters: [
