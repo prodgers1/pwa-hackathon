@@ -4,24 +4,24 @@ import './App.css';
 
 function App() {
 
-  Notification.requestPermission(function (status) {
-    console.log('Notification permission status:', status);
-  });
+  // Notification.requestPermission(function (status) {
+  //   console.log('Notification permission status:', status);
+  // });
 
-  function displayNotification() {
-    if (Notification.permission == 'granted') {
-      navigator.serviceWorker.getRegistration().then(function (reg) {
-        reg.showNotification('Hello world!');
-      });
-    }
-  }
+  // function displayNotification() {
+  //   if (Notification.permission == 'granted') {
+  //     navigator.serviceWorker.getRegistration().then(function (reg) {
+  //       reg.showNotification('Hello world!');
+  //     });
+  //   }
+  // }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This is a cool PWA!
         </p>
         <a
           className="App-link"
@@ -32,11 +32,11 @@ function App() {
           Learn React
         </a>
       </header>
-      <div>
+      {/* <div>
         <button onClick={() => displayNotification()}>
           Hello
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
