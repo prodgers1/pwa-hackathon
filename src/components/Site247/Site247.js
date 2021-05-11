@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   root: {
     minWidth: 240,
   },
+
   title: {
     fontSize: 24,
     fontWeight: "bold"
@@ -23,11 +24,13 @@ const useStyles = makeStyles({
   card: {
     textAlign: 'start'
   },
-  margin: {
-    marginTop: "2rem",
-    marginBottom: "2rem",
+  mainCard: {
+    marginTop: "4rem",
+    marginBottom: "4rem",
     marginLeft: "1rem",
-    marginRight: "1rem"
+    marginRight: "1rem",
+    backgroundColor: "#eeeeee"
+
   },
   green: {
     color: "#4caf50"
@@ -40,7 +43,8 @@ const useStyles = makeStyles({
   },
   red: {
     color: "#f44336"
-  }
+  },
+
 });
 
 
@@ -59,13 +63,14 @@ const Site247 = () => {
       <h1>Site 24x7</h1>
       {data.length > 0 && data.map(monitor => (
 
-        <Card variant="outlined" className={classes.margin}>
+        <Card variant="outlined" className={classes.mainCard}>
           <CardContent >
             <Grid container item justify="center" alignItems="center">
               <Grid container item justify="center">
                 <h2>{monitor.name}</h2>
               </Grid>
-              <Grid container item spacing={2} direction="row" justify="center">
+
+              <Grid container item spacing={3} direction="row" justify="center">
                 <Grid item className={classes.card}>
                   <MetricCard metricName="Availability" metricValue={monitor.availability} />
                 </Grid>
@@ -79,6 +84,7 @@ const Site247 = () => {
                   <MetricCard metricName="Last Polled" metricValue={monitor.lastPolled} />
                 </Grid>
               </Grid>
+
             </Grid>
           </CardContent>
         </Card>
