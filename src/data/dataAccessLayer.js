@@ -9,6 +9,9 @@ export default {
   getKibanaLogs() {
     return data.kibana;
   },
+  getBillingAgentData() {
+    return data.billingAgent;
+  },
   getLoadBalancers() {
     return data.loadbalancers;
   },
@@ -76,53 +79,53 @@ var data = {
     {
       id: '1',
       businessUnit: 'Your-Company-BU-Name',
-      name: 'app1.company.com health check',
+      name: 'App 1 Health Check',
       monitorUrl: 'https://app1.company.com/v1/healthcheck',
       availability: '100%',
-      responseTime: '0.125 secs',
+      responseTime: '0.125 sec',
       downtimes: '0',
-      lastPolled: '2 minutes ago',
+      lastPolled: '2 min'
     },
     {
       id: '2',
       businessUnit: 'Your-Company-BU-Name',
-      name: 'app2.company.com health check',
+      name: 'App 2 Health Check',
       monitorUrl: 'https://10.0.0.1/health',
       availability: '100%',
-      responseTime: '0.068 secs',
+      responseTime: '0.068 sec',
       downtimes: '0',
-      lastPolled: '3 minutes ago',
+      lastPolled: '3 min'
     },
     {
       id: '3',
       businessUnit: 'Your-Company-BU-Name',
-      name: 'app3.company.com health check',
+      name: 'App 3 Health Check',
       monitorUrl: 'https://app3.company.com/pulse',
       availability: '99%',
-      responseTime: '0.092 secs',
+      responseTime: '0.092 sec',
       downtimes: '1',
-      lastPolled: '1 minutes ago',
+      lastPolled: '1 min'
     },
     {
       id: '4',
       businessUnit: 'Your-Company-BU-Name',
-      name: 'app4.company.com health check',
+      name: 'App 4 Health Check',
       monitorUrl: 'https://app4.company.com/v1/health',
       availability: '100%',
-      responseTime: '0.077 secs',
+      responseTime: '0.077 sec',
       downtimes: '0',
-      lastPolled: '5 minutes ago',
+      lastPolled: '5 min'
     },
     {
       id: '5',
       businessUnit: 'Your-Company-BU-Name',
-      name: 'app5.company.com health check',
+      name: 'App 5 Health Check',
       monitorUrl: 'https://app5.company.com/v1/healthcheck',
       availability: '99%',
-      responseTime: '0.105 secs',
+      responseTime: '0.105 sec',
       downtimes: '1',
-      lastPolled: '9 minutes ago',
-    },
+      lastPolled: '9 min'
+    }
   ],
   kibana: [
     {
@@ -200,6 +203,44 @@ var data = {
           name: '10.2.3.4',
         },
       },
+    },
+  ],
+  billingAgent: [
+    {
+      batchCount: 0,
+      inProgessCount: 0,
+      successCount: 0,
+      failureCount: 0,
+      queueTotal: 0,
+      date: '2021-05-08T00:00:00',
+      transactionCount: 333839,
+    },
+    {
+      batchCount: 0,
+      inProgessCount: 0,
+      successCount: 0,
+      failureCount: 0,
+      queueTotal: 0,
+      date: '2021-05-09T00:00:00',
+      transactionCount: 231524,
+    },
+    {
+      batchCount: 490021,
+      inProgessCount: 0,
+      successCount: 490000,
+      failureCount: 2,
+      queueTotal: 490002,
+      date: '2021-05-10T00:00:00',
+      transactionCount: 218453,
+    },
+    {
+      batchCount: 74896,
+      inProgessCount: 0,
+      successCount: 74895,
+      failureCount: 0,
+      queueTotal: 74895,
+      date: '2021-05-11T00:00:00',
+      transactionCount: 143246,
     },
   ],
   loadbalancers: [

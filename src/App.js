@@ -2,6 +2,7 @@ import React from 'react';
 
 import logo from './logo.svg';
 import './App.css';
+import Site247 from './components/Site247/Site247';
 
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
@@ -21,7 +22,12 @@ function App() {
 
   return (
     <div className="App">
-      <LoadBalancerList />
+      <Site247 />
+      {/* <div>
+        <button onClick={() => displayNotification()}>
+          Hello
+        </button>
+      </div> */}
     </div>
   );
 }
