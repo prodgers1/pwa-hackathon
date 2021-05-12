@@ -11,22 +11,22 @@ const useStyles = makeStyles(() => ({
     overflow: 'hidden',
     textAlign: 'center',
     borderRadius: '10% / 50%',
+    border: '6px solid black',
   },
   serverName: {
-      fontWeight: 'bold',
+    fontWeight: 'bold',
   },
   statusText: {
-      fontSize: '3em',
-      fontWeight: 'bold',
-      fontFamily: 'Tahoma'
+    fontSize: '3em',
+    fontWeight: 'bold',
+    fontFamily: 'Tahoma',
   },
   fullThrottle: {
-      color: '#117A65',
+    color: '#117A65',
   },
   halfBaked: {
     color: '#C0392B',
-  },  
-
+  },
 }));
 
 const LoadBalancer = (props) => {
