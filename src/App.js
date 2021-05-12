@@ -20,7 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <SCOM />
+      <SCOM isDashboard={true} />
+      <SCOM isDashboard={false} />
       <Site247 />
       {/* <div>
         <button onClick={() => displayNotification()}>
@@ -28,6 +29,7 @@ function App() {
         </button>
       </div> */}
       <BillingAgent isDashboard={true} />
+      <BillingAgent isDashboard={false} />
     </div>
   );
 }

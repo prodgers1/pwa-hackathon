@@ -9,39 +9,49 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import { format } from 'date-fns';
+import parseJSON from 'date-fns/parseJSON';
 
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    flexFlow: 'column',
+    flexFlow: 'column nowrap',
     justifyContent: 'center',
   },
   container: {
     margin: '1em',
     backgroundColor: "#eeeeee",
     
-    padding: '1em',
+    padding: '1.25em',
     border: '1px solid #ddd',
     borderRadius: '.3em',
 
     minWidth: 240,
   },
+  card: {
+    padding: '1em',
+    backgroundColor: '#fff',
+    border: '1px solid #ededed',
+    borderRadius: '.3em',
+  },
   table: {
     minWidth: 650,
   },
-  title: {
+  columnHeader: {
     fontSize: '1.1em',
     fontWeight: 'bold',
   },
-  green: {
-    color: '#39C16C',
+  dashboardSectionTitle: {
+    color: '#db1802', // red
+    marginTop: 0,
   },
-  red: {
-    color: '#db1802'
+  bold: {
+    fontWeight: 'bold',
   }
 });
 
-const SCOM = () => {
+const SCOM = ({ isDashboard }) => {
   const classes = useStyles();
   const [data, setData] = useState([]);
 
@@ -50,49 +60,77 @@ const SCOM = () => {
     setData(scomData);
   }, []);
 
-  return (
-    <div className={classes.root}>
-      {data.length < 1 && (
-        <h1 className={classes.green}>SCOM</h1>
-      )}
+  if (isDashboard) {
+    return(
+      <div className={classes.root}>
+        <div className={classes.container}>
 
-      {data.length > 0 && (
-        <React.Fragment>
-          <h1 className={classes.red}>SCOM</h1>
-          <div className={classes.container}>
-          
-            <TableContainer component={Paper}>
-              <Table className={classes.table}>
+          {data.length < 1 && (
+            <h3 className={classes.green}>SCOM</h3>
+          )}
 
-                <TableHead>
-                  <TableRow>
-                    <TableCell className={classes.title}>Name</TableCell>
-                    <TableCell className={classes.title}>Description</TableCell>
-                    <TableCell className={classes.title}>Source</TableCell>
-                    <TableCell className={classes.title} align="right">Create Date</TableCell>
-                  </TableRow>
-                </TableHead>
+          {data.length > 0 && (
+            <React.Fragment>
+              <h3 className={classes.dashboardSectionTitle}>SCOM ({data.length} Active Alerts Total)</h3>
+              {data.length > 0 && data.map((alert) => (
+                <Grid className={classes.card}>
+                  <div><span className={classes.bold}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> at <span className={classes.bold}>{format(parseJSON(alert.createDate), 'h:mmaaa')}</span>.</div>
+                </Grid>
+              )).slice(0,5)}
+              <div>...</div>
+            </React.Fragment>
+          )}
 
-                <TableBody>
-                  {data.length > 0 && data.map((alert) => (
-                    <TableRow key={`key-${alert.id}-${alert.source}`}>
-                      <TableCell>{alert.name}</TableCell>
-                      <TableCell>{alert.description}</TableCell>
-                      <TableCell>{alert.source}</TableCell>
-                      <TableCell align="right">{alert.createDate}</TableCell>
+        </div>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className={classes.root}>
+
+        {data.length < 1 && (
+          <h2 className={classes.green}>No active SCOM alerts!</h2>
+        )}
+  
+        {data.length > 0 && (
+          <React.Fragment>
+            <h2>SCOM</h2>
+            <div className={classes.container}>
+            
+              <TableContainer component={Paper}>
+                <Table className={classes.table}>
+  
+                  <TableHead>
+                    <TableRow>
+                      <TableCell className={classes.columnHeader}>Name</TableCell>
+                      <TableCell className={classes.columnHeader}>Description</TableCell>
+                      <TableCell className={classes.columnHeader}>Source</TableCell>
+                      <TableCell className={classes.columnHeader} align="right">Create Date</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-
-              </Table>
-            </TableContainer>
-
-          </div>
-        </React.Fragment>
-      )}
-
-    </div>
-  );
+                  </TableHead>
+  
+                  <TableBody>
+                    {data.length > 0 && data.map((alert) => (
+                      <TableRow key={`key-${alert.id}-${alert.source}`}>
+                        <TableCell>{alert.name}</TableCell>
+                        <TableCell>{alert.description}</TableCell>
+                        <TableCell>{alert.source}</TableCell>
+                        <TableCell align="right">{format(parseJSON(alert.createDate), 'MM/dd/yyyy hh:mm:ss aa')}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+  
+                </Table>
+              </TableContainer>
+  
+            </div>
+          </React.Fragment>
+        )}
+  
+      </div>
+    )
+  }
 }
 
 export default SCOM;
