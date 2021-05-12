@@ -25,12 +25,12 @@ const Dashboard = () => {
   //   }
   // }
 
-  return(
+  return (
     <div className={classes.root}>
       <SCOM isDashboard={true} />
       <BillingAgent isDashboard={true} />
       <Site247 />
-      <LoadBalancerList />
+      <LoadBalancerList isDashboard={true} />
 
       {/* <div>
         <button onClick={() => displayNotification()}>
@@ -38,7 +38,7 @@ const Dashboard = () => {
         </button>
       </div> */}
     </div>
-  )
+  );
 }
 
 export default Dashboard;
