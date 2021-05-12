@@ -93,7 +93,7 @@ const Site24x7 = ({ isDashboard }) => {
         <h1>Site 24x7</h1>
         {data.length > 0 && data.map((monitor, i) => (
 
-          <Card variant="outlined" key={i} className={classes.mainCard}>
+          <Card variant="outlined" key={`desktop-${i}-${monitor.name}`} className={classes.mainCard}>
             <CardContent >
               <Grid container item justify="center" alignItems="center">
                 <Grid container item justify="center">
@@ -132,7 +132,7 @@ const Site24x7 = ({ isDashboard }) => {
           <Grid container direction="row" spacing={3} justify="center">
             {data.length > 0 && data.map((monitor, i) => (
 
-              <Grid item>
+              <Grid item key={`dashboard-${i}-${monitor.name}`}>
                 <Link to='/site24x7' className={classes.link}>
                   <Card variant="outlined" key={i}>
                     <CardContent>
