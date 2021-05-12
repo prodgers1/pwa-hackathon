@@ -103,18 +103,24 @@ const BillingAgent = ({ isDashboard }) => {
     return (
       <div className={classes.root}>
         <div className={classes.container}>
+
           <h3 className={classes.dashboardTitle}>Billing Agent (4 day aggregate)</h3>
           <Link to="/billingAgent" className={classes.link}>
+          
             <Grid className={classes.card}>
               Days below processing threshold - <span className={classes.bold}>{belowThreshold}</span>
             </Grid>
+
             <Grid className={classes.card}>
               Total failure count - <span className={classes.bold}>{failureCount}</span>
             </Grid>
+
             <Grid className={classes.card}>
               Today's delta - <span className={classes.bold}>{currentDelta.toFixed(0) + '%'}</span>
             </Grid>
+
           </Link>
+
         </div>
       </div>
     );
