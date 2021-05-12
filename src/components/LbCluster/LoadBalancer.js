@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const LoadBalancer = (props) => {
-  const { loadBalancer } = props;
+  const { loadBalancer, isDashboard } = props;
   const classes = useStyles();
   const statusClass = loadBalancer.status === 'A' ? classes.fullThrottle : classes.halfBaked;
 
@@ -41,6 +41,8 @@ const LoadBalancer = (props) => {
       <Paper variant="outlined" elevation={3} className={classes.square}>
         <Typography className={classes.serverName}>{loadBalancer.name}</Typography>
         <Typography className={classes.statusText + ' ' + statusClass}>{loadBalancer.status}</Typography>
+
+        {!isDashboard && <Typography>expanded view</Typography>}
       </Paper>
     </Grid>
   );

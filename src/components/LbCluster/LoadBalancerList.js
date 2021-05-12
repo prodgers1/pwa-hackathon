@@ -23,7 +23,8 @@ const useStyles = makeStyles(() => ({
 }));
   
   
-const LoadBalancerList = () => {
+const LoadBalancerList = (props) => {
+  const { isDashboard } = props;
   const loadBalancers = dataAccessLayer.getLoadBalancers();
 
   const classes = useStyles();
@@ -34,7 +35,7 @@ const LoadBalancerList = () => {
       <Grid container direction="row" justify="center" alignItems="center" spacing={5}>
         {loadBalancers.map((lb, i) => (
           <React.Fragment key={i}>
-            <LoadBalancer loadBalancer={lb} />
+            <LoadBalancer loadBalancer={lb} isDashboard={isDashboard} />
           </React.Fragment>
         ))}
       </Grid>
