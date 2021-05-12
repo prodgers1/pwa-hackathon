@@ -49,10 +49,10 @@ const useStyles = makeStyles({
   bold: {
     fontWeight: 'bold',
   },
-  alert: {
-    color: '#db1802', // red
-    fontWeight: 'bold',
-  },
+  // alert: {
+  //   color: '#db1802', // red
+  //   fontWeight: 'bold',
+  // },
   link: {
     color: '#000000',
     textDecoration: "none"
@@ -69,6 +69,7 @@ const SCOM = ({ isDashboard }) => {
   }, []);
 
   if (isDashboard) {
+
     return(
       <div className={classes.root}>
         <div className={classes.container}>
@@ -83,9 +84,10 @@ const SCOM = ({ isDashboard }) => {
               <Link to="/scom" className={classes.link}>
               {data.length > 0 && data.map((alert) => (
                 <Grid key={`dashboard-${alert.id}-${alert.source}`} className={classes.card}>
-                  <div><span className={classes.alert}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> ({format(parseJSON(alert.createDate), 'h:mmaaa')})</div>
+                  <div><span className={classes.bold}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> ({format(parseJSON(alert.createDate), 'h:mmaaa')})</div>
                 </Grid>
               )).slice(0,5)}
+              <div>...</div>
               </Link>
             </React.Fragment>
           )}
@@ -93,8 +95,9 @@ const SCOM = ({ isDashboard }) => {
         </div>
       </div>
     )
-  }
-  else {
+
+  } else {
+
     return (
       <div className={classes.root}>
 
@@ -139,6 +142,7 @@ const SCOM = ({ isDashboard }) => {
   
       </div>
     )
+
   }
 }
 
