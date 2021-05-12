@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import SCOM from './components/SCOM/SCOM';
 import Site247 from './components/Site247/Site247';
 import BillingAgent from './components/BillingAgent/BillingAgent';
+import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
 function App() {
   // Notification.requestPermission(function (status) {
@@ -23,13 +24,14 @@ function App() {
       <SCOM isDashboard={true} />
       <SCOM isDashboard={false} />
       <Site247 />
+      <BillingAgent isDashboard={true} />
+      <BillingAgent isDashboard={false} />
+      <LoadBalancerList />
       {/* <div>
         <button onClick={() => displayNotification()}>
           Hello
         </button>
       </div> */}
-      <BillingAgent isDashboard={true} />
-      <BillingAgent isDashboard={false} />
     </div>
   );
 }

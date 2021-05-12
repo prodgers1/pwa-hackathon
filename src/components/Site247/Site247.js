@@ -61,9 +61,9 @@ const Site247 = () => {
   return (
     <React.Fragment>
       <h1>Site 24x7</h1>
-      {data.length > 0 && data.map(monitor => (
+      {data.length > 0 && data.map((monitor, i) => (
 
-        <Card variant="outlined" className={classes.mainCard}>
+        <Card variant="outlined" className={classes.mainCard} key={i}>
           <CardContent >
             <Grid container item justify="center" alignItems="center">
               <Grid container item justify="center">

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   getSCOMAlerts() {
     return data.scom;
@@ -10,6 +11,9 @@ export default {
   },
   getBillingAgentData() {
     return data.billingAgent;
+  },
+  getLoadBalancers() {
+    return data.loadbalancers;
   },
   // getExample(user, date) {
   //   if (date) {
@@ -236,7 +240,7 @@ var data = {
       transactionCount: 143246,
     },
   ],
-  clusters: [
+  loadbalancers: [
     {
       name: 'DRPNWMMCLMAIN',
       status: 'C',
