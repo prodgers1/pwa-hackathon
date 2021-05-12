@@ -1,9 +1,8 @@
 import React from 'react';
 
-import logo from './logo.svg';
 import './App.css';
-import Site247 from './components/Site247/Site247';
 
+import Site247 from './components/Site247/Site247';
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
 function App() {
@@ -28,6 +27,8 @@ function App() {
           Hello
         </button>
       </div> */}
+
+      <LoadBalancerList />
     </div>
   );
 }

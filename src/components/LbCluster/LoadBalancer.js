@@ -21,7 +21,7 @@ const LoadBalancer = (props) => {
     <Grid item container display="flex" justify="center">
       <Card variant="outlined">
         <CardContent>
-          <Typography>{loadBalancer.name}</Typography>
+          <Typography gutterBottom>{loadBalancer.name}</Typography>
         </CardContent>
       </Card>
     </Grid>
