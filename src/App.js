@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
 import Site247 from './components/Site247/Site247';
 import BillingAgent from './components/BillingAgent/BillingAgent';
+import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
 function App() {
   // Notification.requestPermission(function (status) {
@@ -26,6 +28,8 @@ function App() {
         </button>
       </div> */}
       <BillingAgent isDashboard={true} />
+
+      <LoadBalancerList />
     </div>
   );
 }
