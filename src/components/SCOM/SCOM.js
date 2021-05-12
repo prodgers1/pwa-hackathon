@@ -43,12 +43,19 @@ const useStyles = makeStyles({
     fontSize: '1.1em',
     fontWeight: 'bold',
   },
-  dashboardSectionTitle: {
-    color: '#db1802', // red
+  dashboardTitle: {
     marginTop: 0,
   },
   bold: {
     fontWeight: 'bold',
+  },
+  alert: {
+    color: '#db1802', // red
+    fontWeight: 'bold',
+  },
+  link: {
+    color: '#000000',
+    textDecoration: "none"
   }
 });
 
@@ -72,13 +79,14 @@ const SCOM = ({ isDashboard }) => {
 
           {data.length > 0 && (
             <React.Fragment>
-              <h3 className={classes.dashboardSectionTitle}>SCOM ({data.length} Active Alerts Total)</h3>
+              <h3 className={classes.dashboardTitle}>SCOM ({data.length} Active Alerts)</h3>
+              <Link to="/scom" className={classes.link}>
               {data.length > 0 && data.map((alert) => (
-                <Grid className={classes.card}>
-                  <div><span className={classes.bold}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> at <span className={classes.bold}>{format(parseJSON(alert.createDate), 'h:mmaaa')}</span>.</div>
+                <Grid key={`dashboard-${alert.id}-${alert.source}`} className={classes.card}>
+                  <div><span className={classes.alert}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> ({format(parseJSON(alert.createDate), 'h:mmaaa')})</div>
                 </Grid>
               )).slice(0,5)}
-              <Link to="/scom">...</Link>
+              </Link>
             </React.Fragment>
           )}
 
@@ -113,7 +121,7 @@ const SCOM = ({ isDashboard }) => {
   
                   <TableBody>
                     {data.length > 0 && data.map((alert) => (
-                      <TableRow key={`key-${alert.id}-${alert.source}`}>
+                      <TableRow key={`desktop-${alert.id}-${alert.source}`}>
                         <TableCell>{alert.name}</TableCell>
                         <TableCell>{alert.description}</TableCell>
                         <TableCell>{alert.source}</TableCell>

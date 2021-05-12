@@ -1,11 +1,11 @@
 import React from 'react';
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
 import './App.css';
 import SCOM from './components/SCOM/SCOM';
 import Header from './components/Header/Header';
-import Site247 from './components/Site247/Site247';
+import Site24x7 from './components/Site24x7/Site24x7';
 import Dashboard from './components/Dashboard/Dashboard';
 import BillingAgent from './components/BillingAgent/BillingAgent';
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
 
 function App() {
   const classes = useStyles();
+  const isDashboard = false;
 
   return (
     <div className="App">
@@ -26,16 +27,16 @@ function App() {
       <main className={classes.main}>
         <Switch>
           <Route path="/scom">
-            <SCOM isDashboard={false} />
+            <SCOM isDashboard={isDashboard} />
           </Route>
           <Route path="/site24x7">
-            <Site247 />
+            <Site24x7 isDashboard={isDashboard} />
           </Route>
           <Route path="/billingAgent">
-            <BillingAgent isDashboard={false} />
+            <BillingAgent isDashboard={isDashboard} />
           </Route>
           <Route path="/lbc">
-            <LoadBalancerList />
+            <LoadBalancerList isDashboard={isDashboard} />
           </Route>
           <Route path="/">
             <Dashboard />
