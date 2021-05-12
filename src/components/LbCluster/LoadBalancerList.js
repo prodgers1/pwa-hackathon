@@ -8,10 +8,11 @@ import LoadBalancer from './LoadBalancer';
 import dataAccessLayer from '../../data/dataAccessLayer';
 
 const useStyles = makeStyles(() => ({
-    mainContainer: {
-        maxWidth: '300px',
-    },
-  }));
+  mainContainer: {
+    marginBottom: '50px',
+    marginTop: '50px',
+  },
+}));
   
   
 const LoadBalancerList = () => {
@@ -20,14 +21,14 @@ const LoadBalancerList = () => {
   const classes = useStyles();
 
   return (
-    <div>
-        <Grid container direction="column" item xs={2} align="center">
-            {loadBalancers.map((lb, i) => (
-                <React.Fragment key={i}>
-                    <LoadBalancer loadBalancer={lb} />
-                </React.Fragment>
-            ))}
-        </Grid>
+    <div className={classes.mainContainer}>
+      <Grid container direction="row" justify="center" alignItems="center" spacing={5}>
+        {loadBalancers.map((lb, i) => (
+          <React.Fragment key={i}>
+            <LoadBalancer loadBalancer={lb} />
+          </React.Fragment>
+        ))}
+      </Grid>
     </div>
   );
 };

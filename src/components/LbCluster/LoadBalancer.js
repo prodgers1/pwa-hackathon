@@ -1,14 +1,16 @@
 import React from 'react';
-import { Card, Grid, Typography, CardContent } from '@material-ui/core';
+import { Card, Grid, Typography, CardContent, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(() => ({
-  mainContainer: {
-    marginBottom: '10px',
-  },
   square: {
     minWidth: '200px',
     maxWidth: '200px',
+    minHeight: '100px',
+    maxHeight: '200px',
+    overflow: 'hidden',
+    margin: 'auto',
+    textAlign: 'center',
   },
 }));
 
@@ -18,12 +20,11 @@ const LoadBalancer = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid item container display="flex" justify="center">
-      <Card variant="outlined">
-        <CardContent>
+    <Grid item>
+      <Paper variant="outlined" className={classes.square}>
           <Typography gutterBottom>{loadBalancer.name}</Typography>
-        </CardContent>
-      </Card>
+          <Typography>{loadBalancer.status}</Typography>
+        </Paper>
     </Grid>
   );
 };
