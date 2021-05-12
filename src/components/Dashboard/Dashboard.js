@@ -2,7 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import SCOM from '../SCOM/SCOM';
-import Site247 from '../Site247/Site247';
+import Site24x7 from '../Site24x7/Site24x7';
 import BillingAgent from '../BillingAgent/BillingAgent';
 import LoadBalancerList from '../LbCluster/LoadBalancerList';
 
@@ -12,6 +12,8 @@ const useStyles = makeStyles({
 
 const Dashboard = () => {
   const classes = useStyles();
+
+  const isDashboard = true;
 
   // Notification.requestPermission(function (status) {
   //   console.log('Notification permission status:', status);
@@ -25,11 +27,11 @@ const Dashboard = () => {
   //   }
   // }
 
-  return(
+  return (
     <div className={classes.root}>
-      <SCOM isDashboard={true} />
-      <BillingAgent isDashboard={true} />
-      <Site247 />
+      <SCOM isDashboard={isDashboard} />
+      <BillingAgent isDashboard={isDashboard} />
+      <Site24x7 isDashboard={isDashboard} />
       <LoadBalancerList />
 
       {/* <div>
