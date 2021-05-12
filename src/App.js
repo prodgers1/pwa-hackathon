@@ -8,12 +8,15 @@ import {
 
 import './App.css';
 import SCOM from './components/SCOM/SCOM';
-import Site247 from './components/Site247/Site247';
+import Site24x7 from './components/Site24x7/Site24x7';
 import Dashboard from './components/Dashboard/Dashboard';
 import BillingAgent from './components/BillingAgent/BillingAgent';
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
 function App() {
+
+  const isDashboard = false;
+
   return (
     <Router>
       <div className="App">
@@ -38,13 +41,13 @@ function App() {
         </nav>
         <Switch>
           <Route path="/scom">
-            <SCOM isDashboard={false} />
+            <SCOM isDashboard={isDashboard} />
           </Route>
           <Route path="/site24x7">
-            <Site247 />
+            <Site24x7 isDashboard={isDashboard} />
           </Route>
           <Route path="/billingAgent">
-            <BillingAgent isDashboard={false} />
+            <BillingAgent isDashboard={isDashboard} />
           </Route>
           <Route path="/lbc">
             <LoadBalancerList isDashboard={false} />
