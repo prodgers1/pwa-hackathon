@@ -84,7 +84,7 @@ var data = {
       availability: '100%',
       responseTime: '0.125 sec',
       downtimes: '0',
-      lastPolled: '2 min'
+      lastPolled: '2 min',
     },
     {
       id: '2',
@@ -94,7 +94,7 @@ var data = {
       availability: '100%',
       responseTime: '0.068 sec',
       downtimes: '0',
-      lastPolled: '3 min'
+      lastPolled: '3 min',
     },
     {
       id: '3',
@@ -104,7 +104,7 @@ var data = {
       availability: '99%',
       responseTime: '0.092 sec',
       downtimes: '1',
-      lastPolled: '1 min'
+      lastPolled: '1 min',
     },
     {
       id: '4',
@@ -114,7 +114,7 @@ var data = {
       availability: '100%',
       responseTime: '0.077 sec',
       downtimes: '0',
-      lastPolled: '5 min'
+      lastPolled: '5 min',
     },
     {
       id: '5',
@@ -124,8 +124,8 @@ var data = {
       availability: '99%',
       responseTime: '0.105 sec',
       downtimes: '1',
-      lastPolled: '9 min'
-    }
+      lastPolled: '9 min',
+    },
   ],
   kibana: [
     {
@@ -260,7 +260,7 @@ var data = {
     },
     {
       name: 'DRPNWMMCLEAST',
-      status: 'C',
+      status: 'A',
       capacity: '92%',
       connections: '160',
       inTransition: false,
