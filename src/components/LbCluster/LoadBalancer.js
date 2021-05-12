@@ -12,9 +12,11 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center',
     borderRadius: '10% / 50%',
     border: '6px solid black',
+    backgroundColor: '#F8F9F9',
   },
   serverName: {
     fontWeight: 'bold',
+    color: '#212F3D',
   },
   statusText: {
     fontSize: '3em',
@@ -37,11 +39,11 @@ const LoadBalancer = (props) => {
   return (
     <Grid item>
       <Paper variant="outlined" elevation={3} className={classes.square}>
-        <Typography color="textSecondary" className={classes.serverName}>{loadBalancer.name}</Typography>
+        <Typography className={classes.serverName}>{loadBalancer.name}</Typography>
         <Typography className={classes.statusText + ' ' + statusClass}>{loadBalancer.status}</Typography>
       </Paper>
     </Grid>
-  )
+  );
 };
 
 export default LoadBalancer;

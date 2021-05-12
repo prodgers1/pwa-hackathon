@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
     borderRadius: '5px',
   },
   grayText: {
-      color: '#eeeeee',
-  }
+    color: '#eeeeee',
+  },
 }));
   
   
