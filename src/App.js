@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.css';
-
+import SCOM from './components/SCOM/SCOM';
 import Site247 from './components/Site247/Site247';
 import BillingAgent from './components/BillingAgent/BillingAgent';
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
@@ -21,15 +21,17 @@ function App() {
 
   return (
     <div className="App">
+      <SCOM isDashboard={true} />
+      <SCOM isDashboard={false} />
       <Site247 />
+      <BillingAgent isDashboard={true} />
+      <BillingAgent isDashboard={false} />
+      <LoadBalancerList />
       {/* <div>
         <button onClick={() => displayNotification()}>
           Hello
         </button>
       </div> */}
-      <BillingAgent isDashboard={true} />
-
-      <LoadBalancerList />
     </div>
   );
 }
