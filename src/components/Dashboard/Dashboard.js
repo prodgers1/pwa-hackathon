@@ -32,7 +32,7 @@ const Dashboard = () => {
       <SCOM isDashboard={isDashboard} />
       <BillingAgent isDashboard={isDashboard} />
       <Site24x7 isDashboard={isDashboard} />
-      <LoadBalancerList />
+      <LoadBalancerList isDashboard={isDashboard} />
 
       {/* <div>
         <button onClick={() => displayNotification()}>
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </button>
       </div> */}
     </div>
-  )
+  );
 }
 
 export default Dashboard;

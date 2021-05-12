@@ -50,7 +50,7 @@ function App() {
             <BillingAgent isDashboard={isDashboard} />
           </Route>
           <Route path="/lbc">
-            <LoadBalancerList />
+            <LoadBalancerList isDashboard={false} />
           </Route>
           <Route path="/">
             <Dashboard />
