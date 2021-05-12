@@ -1,23 +1,45 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import dataAccessLayer from '../../data/dataAccessLayer';
-import Typography from '@material-ui/core/Typography';
 import { TableContainer, Table, TableHead, TableRow, Paper, TableCell, TableBody, Grid } from '@material-ui/core';
-import { format, differenceInDays, parseISO } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import parseJSON from 'date-fns/parseJSON';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
   root: {
-    padding: '0 2em',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    justifyContent: 'center',
   },
-  contentGrid: {
-    padding: '2em',
+  container: {
+    margin: '1em',
+    backgroundColor: "#eeeeee",
+    
+    padding: '1.25em',
+    border: '1px solid #ddd',
+    borderRadius: '.3em',
+
+    minWidth: 240,
   },
-  unlockedGrid: {
+  card: {
     padding: '1em',
+    backgroundColor: '#fff',
+    border: '1px solid #ededed',
+    borderRadius: '.3em',
   },
-}));
+  dashboardTitle: {
+    marginTop: 0,
+  },
+  link: {
+    color: '#000000',
+    textDecoration: "none"
+  },
+  bold: {
+    fontWeight: 'bold',
+  }
+});
 
 const rows = dataAccessLayer.getBillingAgentData();
 
@@ -79,14 +101,22 @@ const BillingAgent = ({ isDashboard }) => {
       }
     });
     return (
-      <React.Fragment>
-        <Grid>
-          <h3>Billing Agent (4 day aggregate)</h3>
-          <div>Days below processing threshold: {belowThreshold}</div>
-          <div>Total failure count: {failureCount}</div>
-          <div>Today's delta: {currentDelta.toFixed(0) + '%'}</div>
-        </Grid>
-      </React.Fragment>
+      <div className={classes.root}>
+        <div className={classes.container}>
+          <h3 className={classes.dashboardTitle}>Billing Agent (4 day aggregate)</h3>
+          <Link to="/billingAgent" className={classes.link}>
+            <Grid className={classes.card}>
+              Days below processing threshold - <span className={classes.bold}>{belowThreshold}</span>
+            </Grid>
+            <Grid className={classes.card}>
+              Total failure count - <span className={classes.bold}>{failureCount}</span>
+            </Grid>
+            <Grid className={classes.card}>
+              Today's delta - <span className={classes.bold}>{currentDelta.toFixed(0) + '%'}</span>
+            </Grid>
+          </Link>
+        </div>
+      </div>
     );
   }
 };
