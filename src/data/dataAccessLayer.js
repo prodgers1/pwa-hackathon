@@ -21,51 +21,48 @@ var data = {
   scom: [
     {
       id: '1',
-      source: 'CompanyServer04',
+      source: 'CompanyServer03',
       name: 'YourWindowsService is not running',
       description:
-        'YourWindowsService has crashed or failed to start. Troubleshooting instructions: https://company.com/Your+Windows+Service+Name+Support',
+        'YourWindowsService has crashed or failed to start.',
       createDate: '2021-05-09T11:00:00',
     },
     {
       id: '2',
       source: 'CompanyServer01',
-      name: 'YourWindowsService is not running',
+      name: 'MyWindowsService is not running',
       description:
-        'YourWindowsService has crashed or failed to start. Troubleshooting instructions: https://company.com/Your+Windows+Service+Name+Support',
-      createDate: '2021-05-09T12:30:00',
+        'MyWindowsService has crashed or failed to start.',
+      createDate: '2021-05-10T12:30:00',
     },
     {
       id: '3',
-      source: 'CompanyServer03',
-      name: 'YourWindowsService is not running',
-      description:
-        'YourWindowsService has crashed or failed to start. Troubleshooting instructions: https://company.com/Your+Windows+Service+Name+Support',
-      createDate: '2021-05-09T13:00:00',
+      source: 'CompanyServer01',
+      name: 'MyWindowsService wrote an error to the EventLog',
+      description: 'MyWindowsService wrote an error to the EventLog and has generated indicent #1100223.',
+      createDate: '2021-05-10T12:31:00',
     },
     {
       id: '4',
-      source: 'CompanyServer05',
-      name: 'YourWindowsService is not running',
-      description:
-        'YourWindowsService has crashed or failed to start. Troubleshooting instructions: https://company.com/Your+Windows+Service+Name+Support',
-      createDate: '2021-05-09T14:30:00',
+      source: 'CompanyServer03',
+      name: 'YourWindowsService wrote an error to the EventLog',
+      description: 'YourWindowsService wrote an error to the EventLog and has generated indicent #1100334.',
+      createDate: '2021-05-10T11:01:00',
     },
     {
       id: '5',
       source: 'CompanyServer02',
-      name: 'YourWindowsService is not running',
+      name: 'SomeWindowsService is not running',
       description:
-        'YourWindowsService has crashed or failed to start. Troubleshooting instructions: https://company.com/Your+Windows+Service+Name+Support',
-      createDate: '2021-05-09T15:00:00',
+        'SomeWindowsService has crashed or failed to start.',
+      createDate: '2021-05-09T13:00:00',
     },
     {
       id: '6',
-      source: 'CompanyServer01',
-      name: 'YourWindowsService wrote an error to the EventLog',
-      description:
-        'YourWindowsService wrote an error to the EventLog and has generated an incident ticket: https://company.com/Your+EventLog+Error+Incident+Ticket+Number',
-      createDate: '2021-05-10T23:59:00',
+      source: 'CompanyServer02',
+      name: 'SomeWindowsService wrote an error to the EventLog',
+      description: 'SomeWindowsService wrote an error to the EventLog and has generated indicent #1100445.',
+      createDate: '2021-05-09T13:01:00',
     },
   ],
   site24x7: [

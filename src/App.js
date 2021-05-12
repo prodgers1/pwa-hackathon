@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SCOM from './components/SCOM/SCOM';
 import Site247 from './components/Site247/Site247';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      <SCOM />
       <Site247 />
       {/* <div>
         <button onClick={() => displayNotification()}>
