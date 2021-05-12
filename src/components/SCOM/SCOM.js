@@ -46,17 +46,13 @@ const useStyles = makeStyles({
   dashboardTitle: {
     marginTop: 0,
   },
-  bold: {
-    fontWeight: 'bold',
-  },
-  // alert: {
-  //   color: '#db1802', // red
-  //   fontWeight: 'bold',
-  // },
   link: {
     color: '#000000',
     textDecoration: "none"
-  }
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
 });
 
 const SCOM = ({ isDashboard }) => {
@@ -75,7 +71,7 @@ const SCOM = ({ isDashboard }) => {
         <div className={classes.container}>
 
           {data.length < 1 && (
-            <h3 className={classes.green}>SCOM</h3>
+            <h3>SCOM</h3>
           )}
 
           {data.length > 0 && (
