@@ -1,38 +1,60 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import './App.css';
 import SCOM from './components/SCOM/SCOM';
 import Site247 from './components/Site247/Site247';
+import Dashboard from './components/Dashboard/Dashboard';
 import BillingAgent from './components/BillingAgent/BillingAgent';
 import LoadBalancerList from './components/LbCluster/LoadBalancerList';
 
 function App() {
-  // Notification.requestPermission(function (status) {
-  //   console.log('Notification permission status:', status);
-  // });
-
-  // function displayNotification() {
-  //   if (Notification.permission == 'granted') {
-  //     navigator.serviceWorker.getRegistration().then(function (reg) {
-  //       reg.showNotification('Hello world!');
-  //     });
-  //   }
-  // }
-
   return (
-    <div className="App">
-      <SCOM isDashboard={true} />
-      <SCOM isDashboard={false} />
-      <Site247 />
-      <BillingAgent isDashboard={true} />
-      <BillingAgent isDashboard={false} />
-      <LoadBalancerList />
-      {/* <div>
-        <button onClick={() => displayNotification()}>
-          Hello
-        </button>
-      </div> */}
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/scom">SCOM</Link>
+            </li>
+            <li>
+              <Link to="/site24x7">Site24x7</Link>
+            </li>
+            <li>
+              <Link to="/billingAgent">Billing Agent</Link>
+            </li>
+            <li>
+              <Link to="/lbc">LBC</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/scom">
+            <SCOM isDashboard={false} />
+          </Route>
+          <Route path="/site24x7">
+            <Site247 />
+          </Route>
+          <Route path="/billingAgent">
+            <BillingAgent isDashboard={false} />
+          </Route>
+          <Route path="/lbc">
+            <LoadBalancerList />
+          </Route>
+          <Route path="/">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
