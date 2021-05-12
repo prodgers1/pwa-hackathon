@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import dataAccessLayer from '../../data/dataAccessLayer';
-import { TableContainer, Table, TableHead, TableRow, Paper, TableCell, TableBody } from '@material-ui/core';
-import { format } from 'date-fns';
+import Typography from '@material-ui/core/Typography';
+import { TableContainer, Table, TableHead, TableRow, Paper, TableCell, TableBody, Grid } from '@material-ui/core';
+import { format, differenceInDays, parseISO } from 'date-fns';
 import parseJSON from 'date-fns/parseJSON';
 
 const useStyles = makeStyles(() => ({
@@ -24,8 +25,8 @@ const BillingAgent = ({ isDashboard }) => {
   const classes = useStyles();
   if (!isDashboard) {
     return (
-      <div>
-        <h3>Billing Agent Status</h3>
+      <React.Fragment>
+        <h2>Billing Agent Status</h2>
         <TableContainer component={Paper}>
           <Table className={classes.table}>
             <TableHead>
@@ -56,16 +57,36 @@ const BillingAgent = ({ isDashboard }) => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      </React.Fragment>
     );
   } else {
+    var threshold = 0.5;
+    var belowThreshold = 0;
+    var failureCount = 0;
+    var currentDelta = 0.0;
+
+    rows.forEach((row) => {
+      if (row.transactionCount > 0) {
+        if (row.queueTotal / row.transactionCount < threshold) {
+          belowThreshold++;
+        }
+
+        if (differenceInDays(parseJSON(row.date), new Date()) === 0) {
+          currentDelta = (row.queueTotal / row.transactionCount) * 100;
+        }
+
+        failureCount = failureCount + row.failureCount;
+      }
+    });
     return (
-      <div>
-        <span>Billing Agent</span>
-        <div>Days below processing threshold: 2</div>
-        <div>Total failure count: 2</div>
-        <div>Today's delta: 50%</div>
-      </div>
+      <React.Fragment>
+        <Grid>
+          <h3>Billing Agent (4 day aggregate)</h3>
+          <div>Days below processing threshold: {belowThreshold}</div>
+          <div>Total failure count: {failureCount}</div>
+          <div>Today's delta: {currentDelta.toFixed(0) + '%'}</div>
+        </Grid>
+      </React.Fragment>
     );
   }
 };
