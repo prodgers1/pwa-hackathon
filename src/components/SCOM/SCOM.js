@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import dataAccessLayer from '../../data/dataAccessLayer';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -77,7 +78,7 @@ const SCOM = ({ isDashboard }) => {
                   <div><span className={classes.bold}>{alert.name}</span> on <span className={classes.bold}>{alert.source}</span> at <span className={classes.bold}>{format(parseJSON(alert.createDate), 'h:mmaaa')}</span>.</div>
                 </Grid>
               )).slice(0,5)}
-              <div>...</div>
+              <Link to="/scom">...</Link>
             </React.Fragment>
           )}
 
